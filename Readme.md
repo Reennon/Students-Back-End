@@ -3,7 +3,7 @@ Laboratory 4, variant 12 (pipenv + Python 3.6.*)
 -------------
 
 
-###ReadMeGuide
+### ReadMeGuide
 
 1. ###### Pyenv
 Ensure Pyenv installed correctly, typing a following command in the cloned folder
@@ -48,11 +48,12 @@ It should show the percents, and the current status of the total installation pr
 4. ###### Pycharm Initialization
 Firstly, open recently cloned repo, as a folder in Pycharm
 Then, manage python interpreter, to one in pyenv's folder:
-```
-env\scripts\Python.exe
-``` and select it
+###### env\scripts\Python.exe
+and select it
+
 5. ###### Run a gevent py file
-You might want to use pycharm, or simply, run as a python executable file, but **_ensure_** that python interpreter you are about to run, has needed libraries, and comparable versions (Flask, Gevent)
+You might want to use pycharm, or simply run as a python executable file, but **_ensure_** that python interpreter you are about to run, has the needed libraries with comparable versions (Flask, Gevent)
+
 5. ###### Open tab in a browser
 In an adress line type:
 ```
