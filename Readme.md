@@ -12,7 +12,7 @@ pyenv --version
 ```
 If it outputs something else, but actual pyenv version, please make sure, Pyenv installed properly
 
-2. ###### Install Python 3.6.*
+2. #### Install Python 3.6.*
 Personally, I've installed Python 3.6.8
 ```
 pyenv install 3.6.8
@@ -26,7 +26,7 @@ python -m venv env
 Now console's prefix should look like
 _(env)_ *someDirectory/etc/*
 
-3. ###### Install Flask 
+3. #### Install Flask 
 To install Flask type a command from below
 ```
 pip install flask
@@ -35,7 +35,7 @@ It should show the percents, and the current status of the total installation pr
 ###### 100% |████████████████████████████████|
 ###### Successfully installed...etc
 
-4. ###### Install Gevent
+4. #### Install Gevent
 To install Gevent complete a next line into your console
 ```
 pip install gevent
@@ -45,16 +45,16 @@ It should show the percents, and the current status of the total installation pr
 ###### Successfully installed...etc
 > ######Should be the same as the previous step
 
-4. ###### Pycharm Initialization
+4. #### Pycharm Initialization
 Firstly, open recently cloned repo, as a folder in Pycharm
 Then, manage python interpreter, to one in pyenv's folder:
 ###### env\scripts\Python.exe
 and select it
 
-5. ###### Run a gevent py file
+5. #### Run a gevent py file
 You might want to use pycharm, or simply run as a python executable file, but **_ensure_** that python interpreter you are about to run, has the needed libraries with comparable versions (Flask, Gevent)
 
-5. ###### Open tab in a browser
+5. #### Open tab in a browser
 In an adress line type:
 ```
 http://localhost/
