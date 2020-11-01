@@ -43,7 +43,7 @@ pip install gevent
 It should show the percents, and the current status of the total installation process
 ###### 100% |████████████████████████████████|
 ###### Successfully installed...etc
-> ######Should be the same as the previous step
+> ###### Should be the same as the previous step
 
 5. #### Pycharm Initialization
 Firstly, open recently cloned repo, as a folder in Pycharm
