@@ -1,0 +1,33 @@
+CREATE TABLE "Rating" (
+  "ID" int PRIMARY KEY,
+  "StudentID" int,
+  "MarksID" int
+);
+
+CREATE TABLE "Disciplines" (
+  "ID" int PRIMARY KEY,
+  "DisciplineName" varchar NOT NULL,
+  "Credits" int
+);
+
+CREATE TABLE "Marks" (
+  "ID" int PRIMARY KEY,
+  "DisciplineID" int,
+  "Mark" real,
+  "Passed" boolean
+);
+
+CREATE TABLE "Student" (
+  "ID" int PRIMARY KEY,
+  "Group" varchar,
+  "FirstName" varchar,
+  "LastName" varchar
+);
+
+ALTER TABLE "Student" ADD FOREIGN KEY ("ID") REFERENCES "Rating" ("StudentID");
+
+ALTER TABLE "Disciplines" ADD FOREIGN KEY ("ID") REFERENCES "Marks" ("DisciplineID");
+
+ALTER TABLE "Marks" ADD FOREIGN KEY ("ID") REFERENCES "Rating" ("MarksID");
+
+SELECT * FROM "Disciplines";
