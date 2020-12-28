@@ -1,0 +1,14 @@
+[run]
+omit =
+    */migrations/*
+    , */models/*
+    , */some.py
+    , */venv/*
+    , */pytests/*
+[report]
+omit =
+    */migrations/*
+    , */models/*
+    , */some.py
+    , */venv/*
+    , */pytests/*
