@@ -32,7 +32,7 @@ class MarksResource(Resource):
         link = rights['link']
 
         if not aspect:
-            return "you don't have the permission to aspect"
+            return "you don't have the permission to aspect", 403
 
         return [{column: value for column, value in rowproxy.items()} for rowproxy in db.session.execute(f'''
             Select disciplines.id
@@ -91,7 +91,7 @@ class MarksResource(Resource):
         if Users.query.filter_by(username=current_username).first() is None:
             return 400
         if not link:
-            return "you don't have the permission to edit"
+            return "you don't have the permission to edit", 405
         json = json_tools.loads(request.get_json())
         marks_id = json['MarksID']
         discipline_id = json['DisciplineID']
@@ -100,7 +100,7 @@ class MarksResource(Resource):
         if marks_id < 0 or discipline_id < 0 or mark < 0 \
                 or type(marks_id) is not int \
                 or type(discipline_id) is not int \
-                or type(mark) is not (float or int) \
+                or type(mark) is not (int or float) \
                 or type(passed) is not bool:
             return "Bad Data", 403
         db.session.execute(f'''
@@ -154,10 +154,8 @@ class MarksResource(Resource):
         edit = rights['edit']
         link = rights['link']
 
-        if Users.query.filter_by(username=current_username).first() is None:
-            return 400
         if not edit:
-            return "you don't have the permission to edit"
+            return "you don't have the permission to edit", 405
 
         json = json_tools.loads(request.get_json())
         marks_id = json['MarksID']

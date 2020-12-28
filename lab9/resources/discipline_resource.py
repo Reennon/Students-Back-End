@@ -31,7 +31,7 @@ class DisciplineResource(Resource):
         edit = rights['edit']
         link = rights['link']
         if not aspect:
-            return "you don't have the permission to link"
+            return "you don't have the permission to link", 405
         return [{column: value for column, value in rowproxy.items()} for rowproxy in db.engine.execute(f'''
                     Select *
                     From disciplines
@@ -80,9 +80,9 @@ class DisciplineResource(Resource):
         discipline_name = json['DisciplineName']
         credits = json['Credits']
         if not link:
-            return "you don't have the permission to link"
+            return "you don't have the permission to link", 403
         if credits < 0:
-            return "credits can`t be negative"
+            return "credits can`t be negative", 405
 
         db.session.execute(f'''
             Insert Into disciplines(
@@ -135,16 +135,14 @@ class DisciplineResource(Resource):
         discipline_name = json['DisciplineName']
         credits = json['Credits']
         if not edit:
-            return "you don't have the permission to edit"
+            return "you don't have the permission to edit", 403
 
 
         disciplineName = json['DisciplineName']
         credits = json['Credits']
         discipline_id = json['DisciplineID']
-        if credits < 0:
-            return "credits can`t be negative"
-        if discipline_id < 0 or (Disciplines.query.filter_by(id=discipline_id).first() is None):
-            return "credits can`t be negative"
+        if (discipline_id and credits) < 0 or (Disciplines.query.filter_by(id=discipline_id).first() is None):
+            return "credits or discipline_id can`t be negative", 405
         db.session.execute(f'''
             Update disciplines
             

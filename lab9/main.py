@@ -11,7 +11,7 @@ from flask_jwt_extended import (
 )
 
 db = SQLAlchemy()
-
+print(3)
 
 def create_app(config=None):
     """
